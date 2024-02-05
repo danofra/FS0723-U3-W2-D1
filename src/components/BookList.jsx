@@ -9,6 +9,10 @@ class BookList extends Component {
     bookId: null,
   };
 
+  currentBook = (bookId) => {
+    this.setState({ bookId: bookId });
+  };
+
   render() {
     return (
       <>
@@ -28,8 +32,8 @@ class BookList extends Component {
                   b.title.toLowerCase().includes(this.state.searchQuery)
                 )
                 .map((b) => (
-                  <Col key={b.asin} className="col-md-3">
-                    <SingleBook book={b} />
+                  <Col key={b.asin} className="col-md-3 mb-2">
+                    <SingleBook book={b} currentBookId={this.currentBook} />
                   </Col>
                 ))}
             </Row>

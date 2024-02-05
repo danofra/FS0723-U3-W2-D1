@@ -1,26 +1,27 @@
-import { Button, ListGroup } from 'react-bootstrap'
+import { Button, ListGroup } from "react-bootstrap";
 
 const SingleComment = ({ comment }) => {
   const deleteComment = async (asin) => {
     try {
       let response = await fetch(
-        'https://striveschool-api.herokuapp.com/api/comments/' + asin,
+        "https://striveschool-api.herokuapp.com/api/comments/" + asin,
         {
-          method: 'DELETE',
+          method: "DELETE",
           headers: {
-            Authorization: 'Bearer inserisci-qui-il-tuo-token',
+            Authorization:
+              "BearerBearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWMwZjE1YWUwODVmYTAwMTk2MzFhODUiLCJpYXQiOjE3MDcxNDM1MTQsImV4cCI6MTcwODM1MzExNH0.B6krWrT9m1tHOfbkDR3DXPq6U6NBTw9mR4YRysEf1lo",
           },
         }
-      )
+      );
       if (response.ok) {
-        alert('La recensione è stata elimata!')
+        alert("La recensione è stata elimata!");
       } else {
-        throw new Error('La recensione non è stata eliminata!')
+        throw new Error("La recensione non è stata eliminata!");
       }
     } catch (error) {
-      alert(error)
+      alert(error);
     }
-  }
+  };
 
   return (
     <ListGroup.Item>
@@ -33,7 +34,7 @@ const SingleComment = ({ comment }) => {
         Elimina
       </Button>
     </ListGroup.Item>
-  )
-}
+  );
+};
 
-export default SingleComment
+export default SingleComment;
